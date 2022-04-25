@@ -1,15 +1,20 @@
 package pl.coderslab.entity;
 
-import pl.coderslab.bcrypt.BCrypt;
+import java.util.Arrays;
 
 public class Main {
 
 
     public static void main(String[] args) {
 
-        String password = "password";
-        String hashed = BCrypt.hashpw(password, BCrypt.gensalt());
 
-        System.out.println(hashed);
+        User newUser;
+
+        UserDao userDao = new UserDao();
+        newUser = userDao.read(4);
+        User[] userArr = userDao.findAll();
+        System.out.println(Arrays.toString(userArr));
+
+
     }
 }
